@@ -1,0 +1,19 @@
+---
+- name: Install Apache Web Server
+  hosts: web-server 
+  remote_user: maprangzth
+  tasks: 
+  - name: Ensure httpd package is latest 
+    yum: 
+      name: httpd 
+      state: latest
+    notify: Start and enabled httpd service
+    become: True 
+
+  handlers:
+   - name: Start and enabled httpd service
+     service: 
+      name: httpd 
+      state: started 
+      enabled: True
+     become: True
