@@ -79,7 +79,7 @@ resource "aws_instance" "jenkins-ci" {
     EOT
   }
 
-  tags {
+  tags = {
     Name     = "jenkins-ci-${count.index +1 }"
     Batch    = "7AM"
     Location = "Singapore"
@@ -136,7 +136,7 @@ resource "aws_instance" "gitLab" {
     EOT
   }
 
-  tags {
+  tags = {
     Name     = "gitLab-count.index +1"
     Batch    = "7AM"
     Location = "Singapore"
@@ -162,7 +162,7 @@ resource "aws_security_group" "web" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-  tags {
+  tags = {
     Name = "web-example-default-vpc"
   }
 }
@@ -196,7 +196,7 @@ resource "aws_security_group" "egress-tls" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-  tags {
+  tags = {
     Name = "egress-tls-example-default-vpc"
   }
 }
@@ -214,7 +214,7 @@ resource "aws_security_group" "ping-ICMP" {
     ipv6_cidr_blocks = ["::/0"]
   }
 
-  tags {
+  tags = {
     Name = "ping-ICMP-example-default-vpc"
   }
 }
@@ -232,7 +232,7 @@ resource "aws_security_group" "web_server" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-  tags {
+  tags = {
     Name = "web_server-example-default-vpc"
   }
 }
